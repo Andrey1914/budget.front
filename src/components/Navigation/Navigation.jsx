@@ -1,6 +1,6 @@
 import React from "react";
 import avatar from "../../img/avatar.jpg";
-// import { signout } from "../../utils/icons";
+import { signout } from "../../utils/icons";
 import { menuItems } from "../../utils/menuItems";
 
 import { NavStyled } from "./NavigationStyled";
@@ -29,7 +29,9 @@ export default function Navigation({ active, setActive }) {
           );
         })}
       </ul>
-      <div className="bottom-nav">{/* <li>{signout} Sign Out</li> */}</div>
+      <div className="bottom-nav">
+        <li>{signout} Sign Out</li>
+      </div>
     </NavStyled>
   );
 }

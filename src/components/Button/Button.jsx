@@ -12,7 +12,6 @@ export default function Button({ name, icon, onClick, bg, bPad, color, bRad }) {
       }}
       onClick={onClick}
     >
-      {/* <Trash /> */}
       {icon}
       {name}
     </ButtonStyled>
