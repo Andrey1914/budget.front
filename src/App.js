@@ -8,13 +8,9 @@ import Navigation from "./components/Navigation/Navigation";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Income from "./components/Income/Income";
 import Expenses from "./components/Expenses/Expenses";
-// import { useGlobalContext } from "./context/globalContext";
 
 function App() {
   const [active, setActive] = useState(1);
-
-  // const global = useGlobalContext();
-  // console.log(global);
 
   const displayData = () => {
     switch (active) {
@@ -47,9 +43,7 @@ function App() {
 }
 const AppStyled = styled.div`
   width: 100%;
-  height: 100vh;
-  /* background-image: url(${(props) => props.bg});
-  background-repeat: no-repeat; */
+  height: auto;
   /* position: relative; */
   main {
     flex: 1;
@@ -57,9 +51,10 @@ const AppStyled = styled.div`
     border: 3px solid #ffffff;
     backdrop-filter: blur(4.5px);
     border-radius: 1rem;
-    overflow-x: hidden;
+    overflow: scroll;
+
     &::-webkit-scrollbar {
-      width: 0;
+      width: 4px;
     }
   }
 `;

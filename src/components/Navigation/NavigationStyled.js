@@ -3,11 +3,11 @@ import { GoSignOut } from "react-icons/go";
 
 export const NavStyled = styled.nav`
   padding: 1rem;
-  height: 100%;
+  /* height: 100%; */
   background: rgba(252, 246, 249, 0.78);
   border: 3px solid #ffffff;
   backdrop-filter: blur(4.5px);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

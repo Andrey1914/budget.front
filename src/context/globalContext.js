@@ -15,6 +15,7 @@ export const GlobalProvider = ({ children }) => {
     headers: {
       "Access-Control-Allow-Credentials": "true",
       "Access-Control-Allow-Origin":
+        // "http://localhost:10000/api/v1/",
         "https://budget-server-owpc.onrender.com/api/v1",
       "Content-Type": "application/json",
       " Access-Control-Allow-Methods": "POST, GET, OPTIONS, HEAD",
