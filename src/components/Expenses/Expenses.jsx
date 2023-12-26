@@ -16,7 +16,7 @@ export default function Expenses() {
   return (
     <ExpenseStyled>
       <InnerLayout>
-        <h1>Видаток</h1>
+        <h1>Видатки</h1>
         <h2 className="total-income">
           Всього: <span>PLN {totalExpenses()}</span>
         </h2>

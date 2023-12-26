@@ -4,7 +4,9 @@ import { InnerLayout } from "../../styles/layouts";
 import Form from "../Form/Form";
 import IncomeItem from "../IncomeItem/IncomeItem";
 
-import { IncomeStyled } from "./IncomeStyled";
+import { IncomeStyled, TotalIncomeContainer } from "./IncomeStyled";
+
+import { Typography } from "@mui/material";
 
 export default function Income() {
   const { incomes, getIncomes, deleteIncome, totalIncomes } =
@@ -16,10 +18,16 @@ export default function Income() {
   return (
     <IncomeStyled>
       <InnerLayout>
-        <h1>Надходження</h1>
-        <h2 className="total-income">
-          Всього: <span>PLN {totalIncomes()}</span>
-        </h2>
+        <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
+          Надходження
+        </Typography>
+        <TotalIncomeContainer
+          style={{ background: "#fcf6f9", border: "1px solid #ffffff" }}
+        >
+          <h2>
+            Всього: <span>PLN {totalIncomes()}</span>
+          </h2>
+        </TotalIncomeContainer>
         <div className="income-content">
           <div className="form-container">
             <Form />

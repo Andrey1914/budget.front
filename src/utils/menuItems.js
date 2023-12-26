@@ -3,25 +3,25 @@ import { dashboard, expenses, transactions, trend } from "./icons";
 export const menuItems = [
   {
     id: 1,
-    title: "Dashboard",
+    title: "Консоль",
     icon: dashboard,
     link: "/dashboard",
   },
   {
     id: 2,
-    title: "View Transactions",
+    title: "Усі операції",
     icon: transactions,
     link: "/dashboard",
   },
   {
     id: 3,
-    title: "Incomes",
+    title: "Прибуток",
     icon: trend,
     link: "/dashboard",
   },
   {
     id: 4,
-    title: "Expenses",
+    title: "Видаток",
     icon: expenses,
     link: "/dashboard",
   },

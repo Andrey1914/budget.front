@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4000/api/v1/";
+// const BASE_URL = "http://localhost:10000/api/v1/";
+const BASE_URL = "https://budget-server-owpc.onrender.com/api/v1";
 
 const GlobalContext = React.createContext();
 
@@ -10,12 +11,32 @@ export const GlobalProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState(null);
 
-  const addIncome = async (income) => {
-    await axios.post(`${BASE_URL}add-income`, income).catch((err) => {
-      setError(err.response.data.message);
-    });
+  const options = {
+    headers: {
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Origin":
+        "https://budget-server-owpc.onrender.com/api/v1",
+      "Content-Type": "application/json",
+      " Access-Control-Allow-Methods": "POST, GET, OPTIONS, HEAD",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept",
+    },
+  };
 
-    getIncomes();
+  const addIncome = async (income) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/add-income`,
+        income,
+        options
+      );
+
+      console.log("Доход успешно добавлен:", response.data);
+
+      await getIncomes();
+    } catch (err) {
+      setError(err.response.data.message);
+    }
   };
 
   const getIncomes = async () => {
@@ -23,32 +44,56 @@ export const GlobalProvider = ({ children }) => {
       return;
     }
 
-    const response = await axios.get(`${BASE_URL}get-incomes`);
+    try {
+      const response = await axios.get(`${BASE_URL}/get-incomes`, options);
 
-    if (response && response.data) {
-      setIncomes(response.data);
+      if (response && response.data) {
+        setIncomes(response.data);
+      }
+    } catch (error) {
+      console.log("Ошибка при получении доходов:", error);
     }
   };
 
   const deleteIncome = async (id) => {
-    await axios.delete(`${BASE_URL}delete-income/${id}`);
-    getIncomes();
+    try {
+      await axios.delete(`${BASE_URL}/delete-income/${id}`, options);
+      await getIncomes();
+    } catch (err) {
+      console.log("Ошибка при удалении дохода:", err);
+    }
   };
 
   const totalIncomes = () => {
-    let totalIncomes = 0;
-    incomes.forEach((income) => {
-      totalIncomes = totalIncomes + income.amount;
-    });
+    if (!Array.isArray(incomes)) {
+      console.log("Ошибка: incomes должен быть массивом");
+      return;
+    }
 
-    return totalIncomes;
+    return incomes.reduce((total, income) => {
+      if (!income.amount) {
+        console.log("Ошибка: у дохода должно быть свойство amount");
+        return total;
+      }
+
+      return total + income.amount;
+    }, 0);
   };
 
   const addExpense = async (expense) => {
-    await axios.post(`${BASE_URL}add-expense`, expense).catch((err) => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/add-expense`,
+        expense,
+        options
+      );
+
+      console.log("Расход успешно добавлен:", response.data);
+
+      await getExpenses();
+    } catch (err) {
       setError(err.response.data.message);
-    });
-    getExpenses();
+    }
   };
 
   const getExpenses = async () => {
@@ -56,25 +101,40 @@ export const GlobalProvider = ({ children }) => {
       return;
     }
 
-    const response = await axios.get(`${BASE_URL}get-expenses`);
+    try {
+      const response = await axios.get(`${BASE_URL}/get-expenses`, options);
 
-    if (response && response.data) {
-      setExpenses(response.data);
+      if (response && response.data) {
+        setExpenses(response.data);
+      }
+    } catch (err) {
+      console.log("Ошибка при получении расходов:", err);
     }
   };
 
   const deleteExpense = async (id) => {
-    await axios.delete(`${BASE_URL}delete-expense/${id}`);
-    getExpenses();
+    try {
+      await axios.delete(`${BASE_URL}/delete-expense/${id}`, options);
+      await getExpenses();
+    } catch (err) {
+      console.log("Ошибка при удалении расхода:", err);
+    }
   };
 
   const totalExpenses = () => {
-    let totalExpenses = 0;
-    expenses.forEach((expense) => {
-      totalExpenses = totalExpenses + expense.amount;
-    });
+    if (!Array.isArray(expenses)) {
+      console.log("Ошибка: expenses должен быть массивом");
+      return;
+    }
 
-    return totalExpenses;
+    return expenses.reduce((total, expense) => {
+      if (!expense.amount) {
+        console.log("Ошибка: у расхода должно быть свойство amount");
+        return total;
+      }
+
+      return total + expense.amount;
+    }, 0);
   };
 
   const totalBalance = () => {

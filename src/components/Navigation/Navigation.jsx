@@ -1,20 +1,28 @@
 import React from "react";
 import avatar from "../../img/avatar.jpg";
-import { signout } from "../../utils/icons";
+// import { signout } from "../../utils/icons";
 import { menuItems } from "../../utils/menuItems";
 
-import { NavStyled } from "./NavigationStyled";
+import { NavStyled, UserContainer, SignOutIcon } from "./NavigationStyled";
+
+import { Typography, Avatar, Button } from "@mui/material";
 
 export default function Navigation({ active, setActive }) {
   return (
     <NavStyled>
-      <div className="user-con">
-        <img src={avatar} alt="" />
+      <UserContainer>
+        <Avatar
+          src={avatar}
+          alt="Users avatar"
+          sx={{ width: 56, height: 56 }}
+        />
         <div className="text">
-          <h2>Ми</h2>
-          <p>Наш бюджет.</p>
+          <Typography component="h2" variant="h4">
+            Ми
+          </Typography>
+          <Typography component="p">Наш бюджет.</Typography>
         </div>
-      </div>
+      </UserContainer>
       <ul className="menu-items">
         {menuItems.map((item) => {
           return (
@@ -29,9 +37,10 @@ export default function Navigation({ active, setActive }) {
           );
         })}
       </ul>
-      <div className="bottom-nav">
-        <li>{signout} Sign Out</li>
-      </div>
+      <Button variant="text">
+        <SignOutIcon /> Sign Out
+        {/* {signout} Sign Out */}
+      </Button>
     </NavStyled>
   );
 }

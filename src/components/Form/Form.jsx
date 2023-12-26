@@ -1,11 +1,23 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 import { useGlobalContext } from "../../context/globalContext";
 import Button from "../Button/Button";
 import { plus } from "../../utils/icons";
 
 import { FormStyled } from "./FormStyled";
+
+import {
+  TextField,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
+
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function Form() {
   const { addIncome, error, setError } = useGlobalContext();
@@ -39,76 +51,69 @@ export default function Form() {
   return (
     <FormStyled onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
-      <div className="input-control">
-        <input
-          type="text"
-          value={title}
-          name={"title"}
-          placeholder="Звідки надходження?"
-          onChange={handleInput("title")}
-        />
-      </div>
-      <div className="input-control">
-        <input
-          value={amount}
-          type="text"
-          name={"amount"}
-          placeholder={"Сума доходу..."}
-          onChange={handleInput("amount")}
-        />
-      </div>
-      <div className="input-control">
-        <DatePicker
-          id="date"
-          placeholderText="Введи дату..."
-          selected={date}
-          dateFormat="dd/MM/yyyy"
-          onChange={(date) => {
-            setInputState({ ...inputState, date: date });
-          }}
-        />
-      </div>
-      <div className="selects input-control">
-        <select
-          required
+
+      <TextField
+        id="outlined-basic"
+        label="Звідки надходження?"
+        variant="outlined"
+        value={title}
+        name={"title"}
+        onChange={handleInput("title")}
+      />
+
+      <TextField
+        id="outlined-basic"
+        label="Сума доходу..."
+        variant="outlined"
+        value={amount}
+        name={"amount"}
+        onChange={handleInput("amount")}
+      />
+
+      <FormControl>
+        <InputLabel id="category">Обери категорію...</InputLabel>
+        <Select
+          labelId="category"
+          id="demo-simple-select"
           value={category}
-          name="category"
-          id="category"
+          label="Обери категорію..."
           onChange={handleInput("category")}
         >
-          <option value="" disabled>
+          <MenuItem value={""} disabled>
             Обери категорію...
-          </option>
-          <option value="salary">Salary</option>
-          <option value="freelancing">Freelancing</option>
-          <option value="investments">Investiments</option>
-          <option value="stocks">Stocks</option>
-          <option value="bitcoin">Bitcoin</option>
-          <option value="bank">Bank Transfer</option>
-          <option value="youtube">Youtube</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div className="input-control">
-        <textarea
-          name="description"
-          value={description}
-          placeholder="Опиши детальніше..."
-          id="description"
-          cols="30"
-          rows="4"
-          onChange={handleInput("description")}
-        ></textarea>
-      </div>
+          </MenuItem>
+          <MenuItem value={"salary"}>Зарплатня</MenuItem>
+          <MenuItem value={"freelancing"}>Підробіток</MenuItem>
+          <MenuItem value={"Compensation"}>Компенсації</MenuItem>
+          <MenuItem value={"other"}>Інше</MenuItem>
+        </Select>
+      </FormControl>
+
+      <TextField
+        id="outlined-multiline-static"
+        label="Опиши детальніше..."
+        multiline
+        rows={8}
+        value={description}
+        onChange={handleInput("description")}
+      />
+
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DemoContainer components={["DatePicker"]}>
+          <DatePicker
+            id="date"
+            selected={date}
+            dateFormat="dd/MM/yyyy"
+            onChange={(date) => {
+              setInputState({ ...inputState, date: date });
+            }}
+            label="Введи дату..."
+          />
+        </DemoContainer>
+      </LocalizationProvider>
+
       <div className="submit-btn">
-        <Button
-          name={"Додай дохід"}
-          icon={plus}
-          bPad={".8rem 1.6rem"}
-          bRad={"30px"}
-          bg={"var(--color-accent"}
-          color={"#fff"}
-        />
+        <Button name={"Додай дохід"} icon={plus} bPad={".8rem 1.6rem"} />
       </div>
     </FormStyled>
   );

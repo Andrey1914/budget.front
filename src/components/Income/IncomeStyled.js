@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Card } from "@mui/material";
 
 export const IncomeStyled = styled.div`
   display: flex;
@@ -15,17 +16,28 @@ export const IncomeStyled = styled.div`
     margin: 1rem 0;
     font-size: 2rem;
     gap: 0.5rem;
-    span {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--color-green);
-    }
   }
   .income-content {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     .incomes {
       flex: 1;
     }
+  }
+`;
+
+export const TotalIncomeContainer = styled(Card)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  margin: 1rem 0;
+  gap: 0.5rem;
+  span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-green);
   }
 `;

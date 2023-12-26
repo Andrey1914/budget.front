@@ -1,79 +1,35 @@
 import styled from "styled-components";
+import { Typography } from "@mui/material";
 
-export const DashboardStyled = styled.div`
-  .stats-con {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-    .chart-con {
-      grid-column: 1 / 4;
-      height: 400px;
-      .amount-con {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-        margin-top: 2rem;
-        .income,
-        .expense {
-          grid-column: span 2;
-        }
-        .income,
-        .expense,
-        .balance {
-          background: #fcf6f9;
-          border: 2px solid #ffffff;
-          box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-          border-radius: 20px;
-          padding: 1rem;
-          p {
-            font-size: 3.5rem;
-            font-weight: 700;
-          }
-        }
+export const Title = styled(Typography)`
+  text-align: center;
+  padding-bottom: 1rem;
+`;
 
-        .balance {
-          grid-column: 2 / 4;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          p {
-            color: var(--color-green);
-            opacity: 0.6;
-            font-size: 4.5rem;
-          }
-        }
-      }
-    }
+export const SalaryTitle = styled(Typography)`
+  display: flex;
+  gap: 0.5rem;
+`;
 
-    .history-con {
-      grid-column: 4 / -1;
-      h2 {
-        margin: 1rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .salary-title {
-        font-size: 1.2rem;
-        span {
-          font-size: 1.8rem;
-        }
-      }
-      .salary-item {
-        background: #fcf6f9;
-        border: 2px solid #ffffff;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-        padding: 1rem;
-        border-radius: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p {
-          font-weight: 600;
-          font-size: 1.6rem;
-        }
-      }
-    }
-  }
+export const SalaryItem = styled.div`
+  background: #fcf6f9;
+  border: 2px solid #ffffff;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AmountItem = styled(SalaryItem)`
+  background: #fcf6f9;
+  border: 2px solid #ffffff;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  margin: 0;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;

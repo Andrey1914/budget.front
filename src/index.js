@@ -3,17 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
 import { GlobalProvider } from "./context/globalContext";
 import { GlobalStyle } from "./styles/globalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

@@ -1,7 +1,9 @@
 import React from "react";
 import { useGlobalContext } from "../context/globalContext";
 
-import { HistoryStyled } from "./HistoryStyled";
+import { HistoryStyled, HistoryItem } from "./HistoryStyled";
+
+import { Typography } from "@mui/material";
 
 export default function History() {
   const { transactionHistory } = useGlobalContext();
@@ -14,16 +16,18 @@ export default function History() {
       {history.map((item) => {
         const { _id, title, amount, type } = item;
         return (
-          <div key={_id} className="history-item">
-            <p
+          <HistoryItem key={_id}>
+            <Typography
+              component="p"
               style={{
                 color: type === "expense" ? "red" : "var(--color-green)",
               }}
             >
               {title}
-            </p>
+            </Typography>
 
-            <p
+            <Typography
+              component="p"
               style={{
                 color: type === "expense" ? "red" : "var(--color-green)",
               }}
@@ -31,8 +35,8 @@ export default function History() {
               {type === "expense"
                 ? `-${amount <= 0 ? 0 : amount}`
                 : `+${amount <= 0 ? 0 : amount}`}
-            </p>
-          </div>
+            </Typography>
+          </HistoryItem>
         );
       })}
     </HistoryStyled>

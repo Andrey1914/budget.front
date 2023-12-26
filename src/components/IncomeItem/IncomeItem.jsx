@@ -1,10 +1,8 @@
 import React from "react";
 import { dateFormat } from "../../utils/dateFormat";
 import {
-  bitcoin,
-  book,
+  travel,
   calender,
-  card,
   circle,
   clothing,
   comment,
@@ -14,16 +12,24 @@ import {
   medical,
   money,
   piggy,
-  stocks,
-  takeaway,
+  communication,
   trash,
-  tv,
-  users,
-  yt,
+  euro,
+  housing,
+  car,
 } from "../../utils/icons";
 import Button from "../Button/Button";
 
-import { IncomeItemStyled } from "./IncomeItemStyled";
+import {
+  IncomeItemStyled,
+  IconContainer,
+  CardContent,
+  CardTitle,
+  InnerContent,
+  TextContainer,
+  Text,
+  ButtonContainer,
+} from "./IncomeItemStyled";
 
 export default function IncomeItem({
   id,
@@ -42,16 +48,6 @@ export default function IncomeItem({
         return money;
       case "freelancing":
         return freelance;
-      case "investments":
-        return stocks;
-      case "stocks":
-        return users;
-      case "bitcoin":
-        return bitcoin;
-      case "bank":
-        return card;
-      case "youtube":
-        return yt;
       case "other":
         return piggy;
       default:
@@ -61,20 +57,26 @@ export default function IncomeItem({
 
   const expenseCatIcon = () => {
     switch (category) {
-      case "education":
-        return book;
-      case "groceries":
+      case "communication":
+        return communication;
+      case "food":
         return food;
       case "health":
         return medical;
-      case "subscriptions":
-        return tv;
-      case "takeaways":
-        return takeaway;
+      case "car":
+        return car;
+      case "transport":
+        return car;
+      case "housing":
+        return housing;
       case "clothing":
         return clothing;
       case "travelling":
-        return freelance;
+        return travel;
+      case "donations":
+        return money;
+      case "currency":
+        return euro;
       case "other":
         return circle;
       default:
@@ -83,26 +85,29 @@ export default function IncomeItem({
   };
 
   return (
-    <IncomeItemStyled indicator={indicatorColor}>
-      <div className="icon">
+    <IncomeItemStyled
+      indicator={indicatorColor}
+      style={{ backgroundColor: "#fcf6f9", border: "1px solid #ffffff" }}
+    >
+      <IconContainer>
         {type === "expense" ? expenseCatIcon() : categoryIcon()}
-      </div>
-      <div className="content">
-        <h5>{title}</h5>
-        <div className="inner-content">
-          <div className="text">
-            <p>
+      </IconContainer>
+      <CardContent>
+        <CardTitle>{title}</CardTitle>
+        <InnerContent>
+          <TextContainer>
+            <Text>
               {dollar} {amount}
-            </p>
-            <p>
+            </Text>
+            <Text>
               {calender} {dateFormat(date)}
-            </p>
-            <p>
+            </Text>
+            <Text>
               {comment}
               {description}
-            </p>
-          </div>
-          <div className="btn-con">
+            </Text>
+          </TextContainer>
+          <ButtonContainer>
             <Button
               icon={trash}
               bPad={"1rem"}
@@ -113,9 +118,9 @@ export default function IncomeItem({
               hColor={"var(--color-green)"}
               onClick={() => deleteItem(id)}
             />
-          </div>
-        </div>
-      </div>
+          </ButtonContainer>
+        </InnerContent>
+      </CardContent>
     </IncomeItemStyled>
   );
 }

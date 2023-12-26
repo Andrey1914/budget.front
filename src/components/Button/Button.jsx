@@ -5,12 +5,13 @@ export default function Button({ name, icon, onClick, bg, bPad, color, bRad }) {
   return (
     <ButtonStyled
       style={{
-        background: bg,
+        // background: bg,
         padding: bPad,
-        borderRadius: bRad,
-        color: color,
+        // borderRadius: bRad,
+        // color: color,
       }}
       onClick={onClick}
+      // variant="outlined"
     >
       {icon}
       {name}

@@ -1,69 +1,73 @@
 import styled from "styled-components";
+import { Card, Typography } from "@mui/material";
 
-export const IncomeItemStyled = styled.div`
-  background: #fcf6f9;
-  border: 2px solid #ffffff;
-  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-  border-radius: 20px;
-  padding: 1rem;
+export const IncomeItemStyled = styled(Card)`
+  padding: 0.5rem;
   margin-bottom: 1rem;
   display: flex;
-  align-items: center;
   gap: 1rem;
-  width: 100%;
-  color: #222260;
-  .icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #ffffff;
-    i {
-      font-size: 2.6rem;
-    }
-  }
+`;
 
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    h5 {
-      font-size: 1.3rem;
-      padding-left: 2rem;
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 0.8rem;
-        height: 0.8rem;
-        border-radius: 50%;
-        background: ${(props) => props.indicator};
-      }
-    }
-
-    .inner-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .text {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        p {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          color: var(--primary-color);
-          opacity: 0.8;
-        }
-      }
-    }
+export const IconContainer = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 0.5rem;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  i {
+    font-size: 2.6rem;
   }
+`;
+
+export const CardContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const CardTitle = styled.h5`
+  font-size: 1.3rem;
+  padding-left: 2rem;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: var(--color-green);
+
+    background: ${(props) => props.indicator};
+  }
+`;
+
+export const InnerContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const Text = styled(Typography)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  opacity: 0.8;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: end;
 `;
