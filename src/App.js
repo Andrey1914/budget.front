@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from "react";
-import styled from "styled-components";
 
-import bg from "./img/bg.webp";
 import { MainLayout } from "./styles/layouts";
 import Orb from "./components/Orb/Orb";
 import Navigation from "./components/Navigation/Navigation";
@@ -32,31 +30,17 @@ function App() {
   }, []);
 
   return (
-    <AppStyled bg={bg} className="App">
+    <>
       {orbMemo}
-      <MainLayout>
-        <Navigation active={active} setActive={setActive} />
-        <main>{displayData()}</main>
-      </MainLayout>
-    </AppStyled>
+
+      <main>
+        <MainLayout>
+          <Navigation active={active} setActive={setActive} />
+          {displayData()}
+        </MainLayout>
+      </main>
+    </>
   );
 }
-const AppStyled = styled.div`
-  width: 100%;
-  height: auto;
-  /* position: relative; */
-  main {
-    flex: 1;
-    background: rgba(252, 246, 249, 0.78);
-    border: 3px solid #ffffff;
-    backdrop-filter: blur(4.5px);
-    border-radius: 1rem;
-    overflow: scroll;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-  }
-`;
 
 export default App;
