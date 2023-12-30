@@ -8,7 +8,7 @@ export const MainLayout = styled.div`
 
   @media all and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     padding: 1.5rem;
-    height: 100%;
+    /* height: 100%; */
     flex-direction: row;
     gap: 1.5rem;
   }
