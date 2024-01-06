@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Card, Typography } from "@mui/material";
 
-export const IncomeItemStyled = styled(Card)`
+export const TransactionItemCard = styled(Card)`
   padding: 0.5rem;
   margin-bottom: 1rem;
   display: flex;
@@ -42,9 +42,8 @@ export const CardTitle = styled.h5`
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 50%;
-    background-color: var(--color-green);
 
-    background: ${(props) => props.indicator};
+    background-color: ${(props) => props.indicator};
   }
 `;
 

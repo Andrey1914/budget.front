@@ -113,7 +113,12 @@ export default function Form() {
       </LocalizationProvider>
 
       <div className="submit-btn">
-        <Button name={"Додай дохід"} icon={plus} bPad={".8rem 1.6rem"} />
+        <Button
+          name={"Додай дохід"}
+          icon={plus}
+          bPad={".8rem 1.6rem"}
+          onClick={handleSubmit}
+        />
       </div>
     </FormStyled>
   );

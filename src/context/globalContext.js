@@ -31,7 +31,7 @@ export const GlobalProvider = ({ children }) => {
         options
       );
 
-      console.log("Доход успешно добавлен:", response.data);
+      console.log("Дохід успішно додано:", response.data);
 
       await getIncomes();
     } catch (err) {
@@ -51,7 +51,7 @@ export const GlobalProvider = ({ children }) => {
         setIncomes(response.data);
       }
     } catch (error) {
-      console.log("Ошибка при получении доходов:", error);
+      console.log("Помилка отримання списку доходів:", error);
     }
   };
 
@@ -59,20 +59,21 @@ export const GlobalProvider = ({ children }) => {
     try {
       await axios.delete(`${BASE_URL}/delete-income/${id}`, options);
       await getIncomes();
+      console.log("Запис про дохід успішно видалено!");
     } catch (err) {
-      console.log("Ошибка при удалении дохода:", err);
+      console.log("Помилка видалення надходження:", err);
     }
   };
 
   const totalIncomes = () => {
     if (!Array.isArray(incomes)) {
-      console.log("Ошибка: incomes должен быть массивом");
+      console.log("Помилка: `incomes` має бути масивом");
       return;
     }
 
     return incomes.reduce((total, income) => {
       if (!income.amount) {
-        console.log("Ошибка: у дохода должно быть свойство amount");
+        console.log("Помилка: надходження повинні мати властивість `amount`");
         return total;
       }
 
@@ -88,7 +89,7 @@ export const GlobalProvider = ({ children }) => {
         options
       );
 
-      console.log("Расход успешно добавлен:", response.data);
+      console.log("Видаток успішно додано:", response.data);
 
       await getExpenses();
     } catch (err) {
@@ -108,7 +109,7 @@ export const GlobalProvider = ({ children }) => {
         setExpenses(response.data);
       }
     } catch (err) {
-      console.log("Ошибка при получении расходов:", err);
+      console.log("Помилка отримання списку видатків:", err);
     }
   };
 
@@ -116,20 +117,21 @@ export const GlobalProvider = ({ children }) => {
     try {
       await axios.delete(`${BASE_URL}/delete-expense/${id}`, options);
       await getExpenses();
+      console.log("Запис про росхід успішно видалено!");
     } catch (err) {
-      console.log("Ошибка при удалении расхода:", err);
+      console.log("Помилка видалення видатку:", err);
     }
   };
 
   const totalExpenses = () => {
     if (!Array.isArray(expenses)) {
-      console.log("Ошибка: expenses должен быть массивом");
+      console.log("Помилка: `expenses` має бути масивом");
       return;
     }
 
     return expenses.reduce((total, expense) => {
       if (!expense.amount) {
-        console.log("Ошибка: у расхода должно быть свойство amount");
+        console.log("Помилка: видатки повинні мати властивість `amount`");
         return total;
       }
 

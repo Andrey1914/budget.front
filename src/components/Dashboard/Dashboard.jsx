@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import { useGlobalContext } from "../../context/globalContext";
 import History from "../../history/History";
 import { InnerLayout } from "../../styles/layouts";

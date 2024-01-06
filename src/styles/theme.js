@@ -1,12 +1,18 @@
-export const theme = {
+import { createTheme } from "@mui/material";
+
+export const theme = createTheme({
   fonts: {
     montserrat: "'Montserrat', sans-serif",
     cardo: "'Cardo', serif",
   },
+
   breakpoints: {
-    lg: "64rem",
-    md: "58.125rem",
-    sm: "48rem",
-    xs: "31.25rem",
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
   },
-};
+});

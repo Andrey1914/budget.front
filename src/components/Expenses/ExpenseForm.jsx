@@ -120,7 +120,12 @@ export default function ExpenseForm() {
       </LocalizationProvider>
 
       <div className="submit-btn">
-        <Button name={"Додай видаток"} icon={plus} bPad={".8rem 1.6rem"} />
+        <Button
+          name={"Додай видаток"}
+          icon={plus}
+          bPad={".8rem 1.6rem"}
+          onClick={handleSubmit}
+        />
       </div>
     </ExpenseFormStyled>
   );

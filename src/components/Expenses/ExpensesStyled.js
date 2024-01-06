@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Card } from "@mui/material";
 
-export const TotalIncomesContainer = styled(Card)`
+export const TotalExpensesContainer = styled(Card)`
   display: flex;
   justify-content: center;
   align-items: center;
