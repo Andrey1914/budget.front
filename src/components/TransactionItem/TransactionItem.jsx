@@ -21,7 +21,7 @@ import {
 import Button from "../Button/Button";
 
 import {
-  IncomeItemStyled,
+  TransactionItemCard,
   IconContainer,
   CardContent,
   CardTitle,
@@ -29,9 +29,9 @@ import {
   TextContainer,
   Text,
   ButtonContainer,
-} from "./IncomeItemStyled";
+} from "./TransactionItemStyled";
 
-export default function IncomeItem({
+export default function TransactionItem({
   id,
   title,
   amount,
@@ -85,15 +85,14 @@ export default function IncomeItem({
   };
 
   return (
-    <IncomeItemStyled
-      indicator={indicatorColor}
+    <TransactionItemCard
       style={{ backgroundColor: "#fcf6f9", border: "1px solid #ffffff" }}
     >
       <IconContainer>
         {type === "expense" ? expenseCatIcon() : categoryIcon()}
       </IconContainer>
       <CardContent>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle indicator={indicatorColor}>{title}</CardTitle>
         <InnerContent>
           <TextContainer>
             <Text>
@@ -121,6 +120,6 @@ export default function IncomeItem({
           </ButtonContainer>
         </InnerContent>
       </CardContent>
-    </IncomeItemStyled>
+    </TransactionItemCard>
   );
 }

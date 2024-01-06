@@ -9,14 +9,20 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root{
-        --primary-color: #222260;
+        --text: #222260;
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
         --color-green: #42AD00;
         --color-grey: #aaa;
         --color-accent: #F56692;
         --color-delete: #FF0000;
+        --bg-header: #4fbaf4;
+        --liniar-gradient-dark: #4fbaf4;
+        --liniar-gradient-light: #4af2ec;
+
+        --bg: #f3f9f9;
     }
+
     html[theme-type="light"] {
     overflow-x: hidden;
 
@@ -82,12 +88,12 @@ export const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Nunito', sans-serif;
         font-size: clamp(1rem, 1.5vw, 1.2rem);
-        overflow: hidden;
+        /* overflow: hidden; */
         color: rgba(34, 34, 96, .6);
     }
 
     h1, h2, h3, h4, h5, h6{
-        color: var(--primary-color);
+        color: var(--text);
     }
 
     .error{
