@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../../context/globalContext";
 import { InnerLayout } from "../../styles/layouts";
-import ExpenseForm from "./ExpenseForm";
+import ExpensesForm from "./ExpenseForm";
 
 import { TotalExpensesContainer, FormContainer } from "./ExpensesStyled";
 
@@ -28,7 +28,7 @@ export default function Expenses() {
       </TotalExpensesContainer>
 
       <FormContainer>
-        <ExpenseForm />
+        <ExpensesForm />
       </FormContainer>
     </InnerLayout>
   );
