@@ -5,7 +5,7 @@ export const theme = createTheme({
     montserrat: "'Montserrat', sans-serif",
     cardo: "'Cardo', serif",
   },
-
+  spacing: [0, 4, 8, 16, 32, 64, 128],
   breakpoints: {
     values: {
       xs: 0,
