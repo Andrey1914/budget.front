@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Typography } from "@mui/material";
+import { Typography, Paper } from "@mui/material";
 
 export const DashboardContainer = styled("div", {
   name: "Container",
@@ -37,23 +37,20 @@ export const SalaryTitle = styled(Typography, {
   },
 }));
 
-export const SalaryItem = styled("div", {
-  name: "Box",
-  slot: "box",
+export const SalaryItem = styled(Paper, {
+  name: "Paper",
+  slot: "paper",
 })(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   background: "#fcf6f9",
-  border: "1px solid #ffffff",
-  boxShadow: "0px 1px 15px rgba(0, 0, 0, 0.06)",
   padding: theme.spacing(2),
   margin: theme.spacing(2, 0),
-  borderRadius: theme.spacing(1),
 }));
 
 export const AmountItem = styled(SalaryItem, {
-  name: "Box",
-  slot: "box",
+  name: "Paper",
+  slot: "paper",
 })(({ theme }) => ({
   margin: theme.spacing(0),
   flexDirection: "column",
