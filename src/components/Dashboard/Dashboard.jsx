@@ -6,7 +6,13 @@ import { InnerLayout } from "../../styles/layouts";
 import { dollar } from "../../utils/icons";
 import Chart from "../Chart/Chart";
 
-import { Title, SalaryTitle, SalaryItem, AmountItem } from "./DashboardStyled";
+import {
+  DashboardContainer,
+  Title,
+  SalaryTitle,
+  SalaryItem,
+  AmountItem,
+} from "./DashboardStyled";
 
 import { Grid, Typography } from "@mui/material";
 
@@ -31,15 +37,13 @@ export default function Dashboard() {
       <Title component="h1" variant="h4">
         Усі транзакції.
       </Title>
-      <Grid container spacing={2}>
+      <DashboardContainer>
         <Grid item xs={6}>
           <Chart />
           <Grid container spacing={1} my={1}>
             <Grid item xs={6} md={4}>
               <AmountItem>
-                <SalaryTitle component="h2" fontSize="12px">
-                  Весь прибуток.
-                </SalaryTitle>
+                <SalaryTitle component="h2">Весь прибуток.</SalaryTitle>
                 <Typography component="p">
                   {dollar} {totalIncomes()}
                 </Typography>
@@ -47,9 +51,7 @@ export default function Dashboard() {
             </Grid>
             <Grid item xs={6} md={4}>
               <AmountItem>
-                <SalaryTitle component="h2" fontSize="12px">
-                  Всі витрати.
-                </SalaryTitle>
+                <SalaryTitle component="h2">Всі витрати.</SalaryTitle>
                 <Typography component="p">
                   {dollar} {totalExpenses()}
                 </Typography>
@@ -57,9 +59,7 @@ export default function Dashboard() {
             </Grid>
             <Grid item xs={6} md={4}>
               <AmountItem>
-                <SalaryTitle component="h2" fontSize="12px">
-                  Залишок коштів.
-                </SalaryTitle>
+                <SalaryTitle component="h2">Залишок коштів.</SalaryTitle>
                 <Typography component="p" color="var(--color-green)">
                   {dollar} {totalBalance()}
                 </Typography>
@@ -67,7 +67,7 @@ export default function Dashboard() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <SalaryTitle component="h2">
             Мін <span>Прибуток</span> Макс
           </SalaryTitle>
@@ -92,7 +92,7 @@ export default function Dashboard() {
           </SalaryItem>
           <History />
         </Grid>
-      </Grid>
+      </DashboardContainer>
     </InnerLayout>
   );
 }

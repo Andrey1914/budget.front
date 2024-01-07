@@ -6,7 +6,7 @@ export const theme = createTheme({
     cardo: "'Cardo', serif",
   },
   typography: {
-    fontSize: [8, 12, 16, 18, 24, 32],
+    fontSize: 12,
   },
   spacing: [0, 4, 8, 16, 32, 64, 128],
   breakpoints: {
