@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
-export const ContainerStyled = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+export const ContainerStyled = styled("div", {
+  name: "Container",
+  slot: "wrapper",
+})(({ theme }) => ({
+  margin: theme.spacing(0, "auto"),
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
 
-  @media all and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    width: 1200px;
-    flex-direction: row;
-    padding-top: 7rem;
-  }
-`;
+  [theme.breakpoints.up("lg")]: {
+    width: "1200px",
+    flexDirection: "row",
+    paddingTop: theme.spacing(6),
+  },
+}));
