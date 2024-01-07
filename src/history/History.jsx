@@ -12,11 +12,13 @@ export default function History() {
 
   return (
     <HistoryStyled>
-      <h2>Історія</h2>
+      <Typography component="h2" variant="h4" style={{ textAlign: "center" }}>
+        Історія
+      </Typography>
       {history.map((item) => {
         const { _id, title, amount, type } = item;
         return (
-          <HistoryItem key={_id}>
+          <HistoryItem key={_id} style={{ background: "#fcf6f9" }}>
             <Typography
               component="p"
               style={{
