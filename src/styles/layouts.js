@@ -7,6 +7,6 @@ export const InnerLayout = styled("div", {
   width: "100%",
   padding: theme.spacing(6, 2),
   [theme.breakpoints.up("lg")]: {
-    padding: theme.spacing(6, 3),
+    padding: theme.spacing(6, 6),
   },
 }));
