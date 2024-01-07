@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { SalaryItem } from "../Dashboard/DashboardStyled";
+import { Paper } from "@mui/material";
 
-export const ChartStyled = styled(SalaryItem, {
-  name: "Box",
-  slot: "box",
+export const ChartStyled = styled(Paper, {
+  name: "Paper",
+  slot: "paper",
 })(({ theme }) => ({
-  display: "block",
-  margin: theme.spacing(0),
+  padding: theme.spacing(3),
 }));

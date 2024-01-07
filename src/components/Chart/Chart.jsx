@@ -63,7 +63,7 @@ export default function Chart() {
   };
 
   return (
-    <ChartStyled>
+    <ChartStyled style={{ background: "#fcf6f9" }}>
       <Line data={data} />
     </ChartStyled>
   );
