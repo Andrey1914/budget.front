@@ -38,7 +38,7 @@ export default function Chart() {
     }),
     datasets: [
       {
-        label: "Income",
+        label: "Надходження",
         data: [
           ...incomes.map((income) => {
             const { amount } = income;
@@ -49,7 +49,7 @@ export default function Chart() {
         tension: 0.2,
       },
       {
-        label: "Expenses",
+        label: "Видатки",
         data: [
           ...expenses.map((expense) => {
             const { amount } = expense;
