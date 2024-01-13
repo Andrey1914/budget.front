@@ -8,7 +8,7 @@ export const theme = createTheme({
   typography: {
     fontSize: 12,
   },
-  spacing: [0, 4, 8, 16, 32, 64, 128],
+  spacing: [0, 4, 8, 16, 32, 64, 128, 256, 300],
   breakpoints: {
     values: {
       xs: 0,

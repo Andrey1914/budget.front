@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import Button from "../Button/Button";
 import { plus } from "../../utils/icons";
 
-import { ExpenseFormStyled } from "./ExpenseFormStyled";
+import { FormStyled } from "../Form/FormStyled";
 
 import {
   TextField,
@@ -18,6 +18,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { theme } from "../../styles/theme";
 
 export default function ExpenseForm() {
   const { addExpense, error, setError } = useGlobalContext();
@@ -49,7 +50,7 @@ export default function ExpenseForm() {
   };
 
   return (
-    <ExpenseFormStyled onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
 
       <TextField
@@ -119,14 +120,14 @@ export default function ExpenseForm() {
         </DemoContainer>
       </LocalizationProvider>
 
-      <div className="submit-btn">
+      <div className="submit-btn" style={{ margin: "auto" }}>
         <Button
           name={"Додай видаток"}
           icon={plus}
-          bPad={".8rem 1.6rem"}
+          bPad={theme.spacing(3, 4)}
           onClick={handleSubmit}
         />
       </div>
-    </ExpenseFormStyled>
+    </FormStyled>
   );
 }

@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../../context/globalContext";
 import { InnerLayout } from "../../styles/layouts";
-import ExpensesForm from "./ExpenseForm";
+import ExpenseForm from "./ExpenseForm";
 
-import { TotalExpensesContainer, FormContainer } from "./ExpensesStyled";
+import {
+  TotalExpensesContainer,
+  FormContainer,
+  TotalSum,
+} from "./ExpensesStyled";
 
 import { Typography } from "@mui/material";
 
@@ -20,15 +24,18 @@ export default function Expenses() {
       </Typography>
 
       <TotalExpensesContainer
-        style={{ background: "#fcf6f9", border: "1px solid #ffffff" }}
+        style={{
+          background: "var(--bg-total-container)",
+          border: "1px solid #ffffff",
+        }}
       >
-        <h2>
-          Всього: <span>PLN {totalExpenses()}</span>
-        </h2>
+        <Typography component="h2" variant="h4" style={{ textAlign: "center" }}>
+          Всього: <TotalSum>PLN {totalExpenses()}</TotalSum>
+        </Typography>
       </TotalExpensesContainer>
 
       <FormContainer>
-        <ExpensesForm />
+        <ExpenseForm />
       </FormContainer>
     </InnerLayout>
   );
