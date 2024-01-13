@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../../context/globalContext";
 import { InnerLayout } from "../../styles/layouts";
-import Form from "../Form/Form";
+import IncomeForm from "./IncomeForm";
 
 import { TotalIncomesContainer, FormContainer } from "./IncomeStyled";
 
@@ -32,7 +32,7 @@ export default function Income() {
       </TotalIncomesContainer>
 
       <FormContainer>
-        <Form />
+        <IncomeForm />
       </FormContainer>
     </InnerLayout>
   );

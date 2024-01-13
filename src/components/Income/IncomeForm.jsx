@@ -4,7 +4,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import Button from "../Button/Button";
 import { plus } from "../../utils/icons";
 
-import { FormStyled } from "./FormStyled";
+import { FormStyled } from "../Form/FormStyled";
 
 import {
   TextField,
@@ -19,7 +19,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-export default function Form() {
+export default function IncomeForm() {
   const { addIncome, error, setError } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",

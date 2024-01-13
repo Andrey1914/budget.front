@@ -7,6 +7,7 @@ import TransactionItem from "../TransactionItem/TransactionItem.jsx";
 import { ContainerStyled } from "./AllTransactionsStyled.js";
 
 import { Container, Typography } from "@mui/material";
+import { theme } from "../../styles/theme.js";
 
 export default function AllTransactions() {
   const {
@@ -25,11 +26,11 @@ export default function AllTransactions() {
 
   return (
     <ContainerStyled>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" style={{ paddingTop: theme.spacing(6) }}>
         <Typography
           component="h2"
           variant="p"
-          style={{ paddingBottom: "1rem", textAlign: "center" }}
+          style={{ paddingBottom: theme.spacing(3), textAlign: "center" }}
         >
           Надходження
         </Typography>
@@ -57,7 +58,7 @@ export default function AllTransactions() {
         <Typography
           component="h2"
           variant="p"
-          style={{ paddingBottom: "1rem", textAlign: "center" }}
+          style={{ padding: theme.spacing(3, 0), textAlign: "center" }}
         >
           Видатки
         </Typography>

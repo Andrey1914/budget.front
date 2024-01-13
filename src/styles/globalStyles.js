@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
         --bg-header: #4fbaf4;
         --liniar-gradient-dark: #4fbaf4;
         --liniar-gradient-light: #4af2ec;
-
+        --bg-total-container: #fcf6f9;
         --bg: #f3f9f9;
     }
 

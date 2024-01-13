@@ -1,22 +1,29 @@
 import styled from "styled-components";
 import { Card } from "@mui/material";
 
-export const TotalExpensesContainer = styled(Card)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  margin: 1rem 0;
-  gap: 0.5rem;
+export const TotalExpensesContainer = styled(Card, {
+  name: "Container",
+  slot: "wrapper",
+})(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: theme.spacing(3),
+  margin: theme.spacing(3, 0),
+  gap: theme.spacing(2),
+}));
 
-  span {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-green);
-  }
-`;
+export const TotalSum = styled("span", {
+  name: "Span",
+  slot: "sum",
+})(({ theme }) => ({
+  color: "var(--color-green)",
+}));
 
-export const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+export const FormContainer = styled("div", {
+  name: "Container",
+  slot: "wrapper",
+})(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+}));
