@@ -10,6 +10,7 @@ import {
 } from "./ExpensesStyled";
 
 import { Typography } from "@mui/material";
+import { theme } from "../../styles/theme";
 
 export default function Expenses() {
   const { getExpenses, totalExpenses } = useGlobalContext();
@@ -19,16 +20,20 @@ export default function Expenses() {
   });
   return (
     <InnerLayout>
-      <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
-        Видатки
-      </Typography>
-
       <TotalExpensesContainer
         style={{
           background: "var(--bg-total-container)",
           border: "1px solid #ffffff",
         }}
       >
+        <Typography
+          component="h1"
+          variant="h4"
+          style={{ textAlign: "center", paddingBottom: theme.spacing(3) }}
+        >
+          Видатки
+        </Typography>
+
         <Typography component="h2" variant="h4" style={{ textAlign: "center" }}>
           Всього: <TotalSum>PLN {totalExpenses()}</TotalSum>
         </Typography>
