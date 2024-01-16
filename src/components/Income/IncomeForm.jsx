@@ -112,7 +112,7 @@ export default function IncomeForm() {
         </DemoContainer>
       </LocalizationProvider>
 
-      <div className="submit-btn">
+      <div className="submit-btn" style={{ margin: "auto" }}>
         <Button
           name={"Додай дохід"}
           icon={plus}
