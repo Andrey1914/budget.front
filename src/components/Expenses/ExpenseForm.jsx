@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useGlobalContext } from "../../context/globalContext";
-import Button from "../Button/Button";
+
 import { plus } from "../../utils/icons";
 
 import { FormStyled } from "../Form/FormStyled";
@@ -12,13 +12,13 @@ import {
   Select,
   MenuItem,
   FormControl,
+  Fab,
 } from "@mui/material";
 
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { theme } from "../../styles/theme";
 
 export default function ExpenseForm() {
   const { addExpense, error, setError } = useGlobalContext();
@@ -116,17 +116,20 @@ export default function ExpenseForm() {
               setInputState({ ...inputState, date: date });
             }}
             label="Введи дату..."
+            sx={{ width: "100%" }}
           />
         </DemoContainer>
       </LocalizationProvider>
 
-      <div className="submit-btn" style={{ margin: "auto" }}>
-        <Button
-          name={"Додай видаток"}
+      <div className="submit-btn" style={{ marginLeft: "auto" }}>
+        <Fab
           icon={plus}
-          bPad={theme.spacing(3, 4)}
+          color="secondary"
+          aria-label="add"
           onClick={handleSubmit}
-        />
+        >
+          {plus}
+        </Fab>
       </div>
     </FormStyled>
   );

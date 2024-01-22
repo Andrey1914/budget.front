@@ -5,7 +5,7 @@ import IncomeForm from "./IncomeForm";
 
 import { TotalIncomesContainer, FormContainer, TotalSum } from "./IncomeStyled";
 
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { theme } from "../../styles/theme";
 
 export default function Income() {
@@ -20,24 +20,30 @@ export default function Income() {
   });
   return (
     <InnerLayout>
-      <TotalIncomesContainer
-        style={{
-          background: "var(--bg-box)",
-          border: "1px solid #fff",
-        }}
-      >
-        <Typography
-          component="h1"
-          variant="h4"
-          style={{ textAlign: "center", paddingBottom: theme.spacing(3) }}
+      <Container maxWidth="sm">
+        <TotalIncomesContainer
+          style={{
+            background: "var(--bg-box)",
+            border: "1px solid #fff",
+          }}
         >
-          Надходження
-        </Typography>
+          <Typography
+            component="h1"
+            variant="h4"
+            style={{ textAlign: "center", paddingBottom: theme.spacing(3) }}
+          >
+            Надходження
+          </Typography>
 
-        <Typography component="h2" variant="h4" style={{ textAlign: "center" }}>
-          Всього: <TotalSum>PLN {totalIncomes()}</TotalSum>
-        </Typography>
-      </TotalIncomesContainer>
+          <Typography
+            component="h2"
+            variant="h4"
+            style={{ textAlign: "center" }}
+          >
+            Всього: <TotalSum>PLN {totalIncomes()}</TotalSum>
+          </Typography>
+        </TotalIncomesContainer>
+      </Container>
 
       <FormContainer>
         <IncomeForm />

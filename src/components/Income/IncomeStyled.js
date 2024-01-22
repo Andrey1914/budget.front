@@ -7,7 +7,7 @@ export const TotalIncomesContainer = styled(Card)(({ theme }) => ({
 }));
 
 export const TotalSum = styled("span")({
-  color: "var(--color-green)",
+  color: "var(--green)",
 });
 
 export const FormContainer = styled("div")({

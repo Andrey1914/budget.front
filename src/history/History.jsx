@@ -22,7 +22,7 @@ export default function History() {
             <Typography
               component="p"
               style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
+                color: type === "expense" ? "red" : "var(--green)",
               }}
             >
               {title}
@@ -31,7 +31,7 @@ export default function History() {
             <Typography
               component="p"
               style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
+                color: type === "expense" ? "red" : "var(--green)",
               }}
             >
               {type === "expense"

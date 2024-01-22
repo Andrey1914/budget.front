@@ -18,7 +18,6 @@ import {
   housing,
   car,
 } from "../../utils/icons";
-import Button from "../Button/Button";
 
 import {
   TransactionCard,
@@ -31,7 +30,7 @@ import {
   ButtonContainer,
 } from "./TransactionItemStyled";
 
-import { theme } from "../../styles/theme";
+import { Fab } from "@mui/material";
 
 export default function TransactionItem({
   id,
@@ -118,11 +117,13 @@ export default function TransactionItem({
         </InnerContent>
       </CardContent>
       <ButtonContainer>
-        <Button
-          icon={trash}
-          bPad={theme.spacing(3)}
+        <Fab
+          color="secondary"
+          aria-label="delete"
           onClick={() => deleteItem(id)}
-        />
+        >
+          {trash}
+        </Fab>
       </ButtonContainer>
     </TransactionCard>
   );
