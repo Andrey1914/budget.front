@@ -154,7 +154,6 @@ export default function Header(props) {
             }}
           >
             {drawer}
-            {/* <Footer /> */}
           </Drawer>
         </Box>
       </Box>

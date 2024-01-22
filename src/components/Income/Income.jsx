@@ -22,8 +22,8 @@ export default function Income() {
     <InnerLayout>
       <TotalIncomesContainer
         style={{
-          background: "var(--bg-total-container)",
-          border: "1px solid #ffffff",
+          background: "var(--bg-box)",
+          border: "1px solid #fff",
         }}
       >
         <Typography

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerStyled = styled("div", {
-  name: "Container",
-  slot: "wrapper",
-})(({ theme }) => ({
+export const ContainerStyled = styled("div")(({ theme }) => ({
   margin: theme.spacing(0, "auto"),
   display: "flex",
   flexDirection: "column",

@@ -47,7 +47,7 @@ export default function AllTransactions() {
               date={date}
               type={type}
               category={category}
-              indicatorColor="var(--color-green)"
+              indicatorColor="var(--green)"
               deleteItem={deleteIncome}
             />
           );
@@ -76,7 +76,7 @@ export default function AllTransactions() {
               date={date}
               type={type}
               category={category}
-              indicatorColor="var(--color-accent)"
+              indicatorColor="var(--red)"
               deleteItem={deleteExpense}
             />
           );

@@ -21,7 +21,7 @@ import {
 import Button from "../Button/Button";
 
 import {
-  TransactionItemCard,
+  TransactionCard,
   IconContainer,
   CardContent,
   CardTitle,
@@ -30,6 +30,8 @@ import {
   Text,
   ButtonContainer,
 } from "./TransactionItemStyled";
+
+import { theme } from "../../styles/theme";
 
 export default function TransactionItem({
   id,
@@ -85,14 +87,21 @@ export default function TransactionItem({
   };
 
   return (
-    <TransactionItemCard
-      style={{ backgroundColor: "#fcf6f9", border: "1px solid #ffffff" }}
+    <TransactionCard
+      style={{
+        background: "var(--bg-box)",
+        border: "1px solid #fff",
+      }}
     >
-      <IconContainer>
+      <IconContainer
+        style={{ border: "1px solid #fff", background: "var(--bg-box)" }}
+      >
         {type === "expense" ? expenseCatIcon() : categoryIcon()}
       </IconContainer>
       <CardContent>
-        <CardTitle indicator={indicatorColor}>{title}</CardTitle>
+        <CardTitle component="h5" variant="h5" indicator={indicatorColor}>
+          {title}
+        </CardTitle>
         <InnerContent>
           <TextContainer>
             <Text>
@@ -106,20 +115,15 @@ export default function TransactionItem({
               {description}
             </Text>
           </TextContainer>
-          <ButtonContainer>
-            <Button
-              icon={trash}
-              bPad={"1rem"}
-              bRad={"50%"}
-              bg={"var(--primary-color"}
-              color={"#fff"}
-              iColor={"#fff"}
-              hColor={"var(--color-green)"}
-              onClick={() => deleteItem(id)}
-            />
-          </ButtonContainer>
         </InnerContent>
       </CardContent>
-    </TransactionItemCard>
+      <ButtonContainer>
+        <Button
+          icon={trash}
+          bPad={theme.spacing(3)}
+          onClick={() => deleteItem(id)}
+        />
+      </ButtonContainer>
+    </TransactionCard>
   );
 }

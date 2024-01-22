@@ -42,7 +42,7 @@ export default function Dashboard() {
           <Chart />
           <Grid container spacing={1} my={1}>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "#fcf6f9" }}>
+              <AmountItem style={{ background: "var(--bg-box)" }}>
                 <SalaryTitle component="h2">Весь прибуток.</SalaryTitle>
                 <Typography component="p">
                   {dollar} {totalIncomes()}
@@ -50,7 +50,7 @@ export default function Dashboard() {
               </AmountItem>
             </Grid>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "#fcf6f9" }}>
+              <AmountItem style={{ background: "var(--bg-box)" }}>
                 <SalaryTitle component="h2">Всі витрати.</SalaryTitle>
                 <Typography component="p">
                   {dollar} {totalExpenses()}
@@ -58,7 +58,7 @@ export default function Dashboard() {
               </AmountItem>
             </Grid>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "#fcf6f9" }}>
+              <AmountItem style={{ background: "var(--bg-box)" }}>
                 <SalaryTitle component="h2">Залишок коштів.</SalaryTitle>
                 <Typography component="p" color="var(--color-green)">
                   {dollar} {totalBalance()}
@@ -71,7 +71,7 @@ export default function Dashboard() {
           <SalaryTitle component="h2">
             Мін <span>Прибуток</span> Макс
           </SalaryTitle>
-          <SalaryItem style={{ background: "#fcf6f9" }}>
+          <SalaryItem style={{ background: "var(--bg-box)" }}>
             <Typography component="p">
               PLN {Math.min(...incomes.map((item) => item.amount))}
             </Typography>
@@ -83,7 +83,7 @@ export default function Dashboard() {
           <SalaryTitle component="h2">
             Мін <span>Видаток</span> Макс
           </SalaryTitle>
-          <SalaryItem style={{ background: "#fcf6f9" }}>
+          <SalaryItem style={{ background: "var(--bg-box)" }}>
             <Typography component="p">
               PLN {Math.min(...expenses.map((item) => item.amount))}
             </Typography>

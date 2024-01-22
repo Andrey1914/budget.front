@@ -18,6 +18,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { theme } from "../../styles/theme";
 
 export default function IncomeForm() {
   const { addIncome, error, setError } = useGlobalContext();
@@ -116,7 +117,7 @@ export default function IncomeForm() {
         <Button
           name={"Додай дохід"}
           icon={plus}
-          bPad={".8rem 1.6rem"}
+          bPad={theme.spacing(3, 4)}
           onClick={handleSubmit}
         />
       </div>
