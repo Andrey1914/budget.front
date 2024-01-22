@@ -12,15 +12,16 @@ export const GlobalStyle = createGlobalStyle`
         --text: #222260;
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
-        --color-green: #42AD00;
+        --green: #42AD00;
         --color-grey: #aaa;
-        --color-accent: #F56692;
+        --red: #F56692;
         --color-delete: #FF0000;
         --bg-header: #4fbaf4;
         --liniar-gradient-dark: #4fbaf4;
         --liniar-gradient-light: #4af2ec;
-        --bg-total-container: #fcf6f9;
+        --bg-box: #fcf6f9;
         --bg: #f3f9f9;
+        --shadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;'
     }
 
     html[theme-type="light"] {

@@ -26,11 +26,11 @@ export default function AllTransactions() {
 
   return (
     <ContainerStyled>
-      <Container maxWidth="sm" style={{ paddingTop: theme.spacing(6) }}>
+      <Container maxWidth="sm" style={{ paddingTop: theme.spacing(5) }}>
         <Typography
           component="h2"
           variant="p"
-          style={{ paddingBottom: theme.spacing(3), textAlign: "center" }}
+          style={{ padding: theme.spacing(3, 0), textAlign: "center" }}
         >
           Надходження
         </Typography>
@@ -47,14 +47,14 @@ export default function AllTransactions() {
               date={date}
               type={type}
               category={category}
-              indicatorColor="var(--color-green)"
+              indicatorColor="var(--green)"
               deleteItem={deleteIncome}
             />
           );
         })}
       </Container>
 
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" style={{ paddingTop: theme.spacing(5) }}>
         <Typography
           component="h2"
           variant="p"
@@ -76,7 +76,7 @@ export default function AllTransactions() {
               date={date}
               type={type}
               category={category}
-              indicatorColor="var(--color-accent)"
+              indicatorColor="var(--red)"
               deleteItem={deleteExpense}
             />
           );

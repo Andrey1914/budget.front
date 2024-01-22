@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Typography, List, ListItem, styled } from "@mui/material";
 
-export const NavigationList = styled(List, {
-  name: "List",
-  slot: "list",
-})(({ theme }) => ({
+export const NavigationList = styled(List)(({ theme }) => ({
   display: "flex",
 
   [theme.breakpoints.down("md")]: {
@@ -18,41 +15,7 @@ export const NavigationList = styled(List, {
   },
 }));
 
-// export const NavigationLink = styled(NavLink)`
-//   font-size: 1rem;
-//   font-family: "Montserrat";
-//   font-weight: 700;
-//   color: var(--text);
-//   text-decoration: none;
-//   transition: opacity 250ms ease-in-out;
-//   position: relative;
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     bottom: -0.3rem;
-//     right: 0;
-//     left: 0;
-//     width: 0;
-//     transform: scaleX(1);
-//     height: 0.15rem;
-//     border-radius: 0.075rem;
-//     background: var(--text);
-//     transition: 0.3s ease-in-out;
-//   }
-//   &:hover::after {
-//     width: 100%;
-//     color: var(--text);
-//   }
-//   @media (max-width: 567px) {
-//     font-size: 14px;
-//     font-weight: 400;
-//   }
-// `;
-
-export const NavigationLink = styled(NavLink, {
-  name: "NavLink",
-  slot: "navigation",
-})(({ theme }) => ({
+export const NavigationLink = styled(NavLink)(({ theme }) => ({
   fontFamily: "inherit",
   fontSize: theme.typography.fontSize,
   fontWeight: theme.typography.fontWeightBold,
@@ -84,10 +47,7 @@ export const NavigationLink = styled(NavLink, {
   },
 }));
 
-export const DrowerItem = styled(ListItem, {
-  name: "List",
-  slot: "listItem",
-})(({ theme }) => ({
+export const DrowerItem = styled(ListItem)(({ theme }) => ({
   fontSize: theme.typography.fontSize,
   justifyContent: "center",
   fontFamily: "inherit",
@@ -96,10 +56,7 @@ export const DrowerItem = styled(ListItem, {
   color: "var(--text)",
 }));
 
-export const Title = styled(Typography, {
-  name: "Title",
-  slot: "title",
-})(({ theme }) => ({
+export const Title = styled(Typography)(({ theme }) => ({
   fontFamily: "inherit",
   fontSize: theme.spacing(3),
   fontWeight: theme.typography.fontWeightBold,

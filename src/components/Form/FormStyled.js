@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-export const FormStyled = styled("form", {
-  name: "Form",
-  slot: "form",
-})(({ theme }) => ({
+export const FormStyled = styled("form")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: theme.spacing(3),

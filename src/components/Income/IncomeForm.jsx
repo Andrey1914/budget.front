@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useGlobalContext } from "../../context/globalContext";
-import Button from "../Button/Button";
+
 import { plus } from "../../utils/icons";
 
 import { FormStyled } from "../Form/FormStyled";
@@ -12,6 +12,7 @@ import {
   Select,
   MenuItem,
   FormControl,
+  Fab,
 } from "@mui/material";
 
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -108,17 +109,20 @@ export default function IncomeForm() {
               setInputState({ ...inputState, date: date });
             }}
             label="Введи дату..."
+            sx={{ width: "100%" }}
           />
         </DemoContainer>
       </LocalizationProvider>
 
-      <div className="submit-btn" style={{ margin: "auto" }}>
-        <Button
-          name={"Додай дохід"}
+      <div className="submit-btn" style={{ marginLeft: "auto" }}>
+        <Fab
           icon={plus}
-          bPad={".8rem 1.6rem"}
+          color="secondary"
+          aria-label="add"
           onClick={handleSubmit}
-        />
+        >
+          {plus}
+        </Fab>
       </div>
     </FormStyled>
   );

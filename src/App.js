@@ -1,7 +1,11 @@
-import React, { useMemo, lazy, Suspense } from "react";
+import React, {
+  // useMemo,
+  lazy,
+  Suspense,
+} from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Orb from "./components/Orb/Orb";
+// import Orb from "./components/Orb/Orb";
 
 import Header from "./components/Header/Header";
 
@@ -13,14 +17,14 @@ const AllTransactions = lazy(() =>
 );
 
 function App() {
-  const orbMemo = useMemo(() => {
-    return <Orb />;
-  }, []);
+  // const orbMemo = useMemo(() => {
+  //   return <Orb />;
+  // }, []);
 
   return (
     <>
       <div>
-        {orbMemo}
+        {/* {orbMemo} */}
         <Suspense>
           <Header />
           <main>

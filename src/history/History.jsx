@@ -18,11 +18,11 @@ export default function History() {
       {history.map((item) => {
         const { _id, title, amount, type } = item;
         return (
-          <HistoryItem key={_id} style={{ background: "#fcf6f9" }}>
+          <HistoryItem key={_id} style={{ background: "var(--bg-box)" }}>
             <Typography
               component="p"
               style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
+                color: type === "expense" ? "red" : "var(--green)",
               }}
             >
               {title}
@@ -31,7 +31,7 @@ export default function History() {
             <Typography
               component="p"
               style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
+                color: type === "expense" ? "red" : "var(--green)",
               }}
             >
               {type === "expense"
