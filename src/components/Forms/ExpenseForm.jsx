@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { useGlobalContext } from "../../context/globalContext";
+import { useGlobalContext } from "context/globalContext";
 
-import { plus } from "../../utils/icons";
+import { plus } from "utils/icons";
 
-import { FormStyled } from "../Form/FormStyled";
+import { FormStyled } from "components/Forms/FormStyled";
 
 import {
   TextField,

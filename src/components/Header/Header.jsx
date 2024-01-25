@@ -1,5 +1,5 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 // import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 
@@ -12,6 +12,7 @@ import {
   IconButton,
   Toolbar,
 } from "@mui/material";
+
 import MenuIcon from "@mui/icons-material/Menu";
 
 import {
@@ -19,7 +20,7 @@ import {
   NavigationLink,
   DrowerItem,
   Title,
-} from "./HeaderStyled";
+} from "components/Header/HeaderStyled";
 
 const drawerWidth = 240;
 
@@ -65,6 +66,9 @@ export default function Header(props) {
         </NavigationLink>
         <NavigationLink to="/all-transactions">
           <DrowerItem>Історія</DrowerItem>
+        </NavigationLink>
+        <NavigationLink to="/tasks">
+          <DrowerItem>Потрібно купити</DrowerItem>
         </NavigationLink>
       </NavigationList>
       {/* <ThemeSwitch /> */}
@@ -127,6 +131,11 @@ export default function Header(props) {
                     Історія
                   </NavigationLink>
                 </li>
+                <li>
+                  <NavigationLink to="/tasks" exact="true">
+                    Потрібно купити
+                  </NavigationLink>
+                </li>
               </NavigationList>
             </Box>
           </Toolbar>
@@ -161,10 +170,10 @@ export default function Header(props) {
   );
 }
 
-Header.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
+// Header.propTypes = {
+/**
+ * Injected by the documentation to work in an iframe.
+ * You won't need it on your project.
+ */
+// window: PropTypes.func,
+// };

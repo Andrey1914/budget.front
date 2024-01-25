@@ -1,5 +1,7 @@
 import React from "react";
-import { dateFormat } from "../../utils/dateFormat";
+
+import { dateFormat } from "utils/dateFormat";
+
 import {
   travel,
   calender,
@@ -17,7 +19,7 @@ import {
   euro,
   housing,
   car,
-} from "../../utils/icons";
+} from "utils/icons";
 
 import {
   TransactionCard,
@@ -28,7 +30,7 @@ import {
   TextContainer,
   Text,
   ButtonContainer,
-} from "./TransactionItemStyled";
+} from "components/TransactionItem/TransactionItemStyled";
 
 import { Fab } from "@mui/material";
 

@@ -1,0 +1,18 @@
+{
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "airbnb",
+      "plugin:import/recommended",
+      "plugin:react/jsx-runtime"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"],
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+  }
+}

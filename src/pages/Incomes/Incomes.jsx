@@ -1,12 +1,20 @@
 import React, { useEffect } from "react";
-import { useGlobalContext } from "../../context/globalContext";
-import { InnerLayout } from "../../styles/layouts";
-import IncomeForm from "./IncomeForm";
 
-import { TotalIncomesContainer, FormContainer, TotalSum } from "./IncomeStyled";
+import { useGlobalContext } from "context/globalContext";
+
+import IncomeForm from "components/Forms/IncomeForm";
+
+import {
+  TotalIncomesContainer,
+  TotalSum,
+  FormContainer,
+} from "pages/Incomes/IncomesStyled";
+
+import { InnerLayout } from "styles/layouts";
+
+import { theme } from "styles/theme";
 
 import { Container, Typography } from "@mui/material";
-import { theme } from "../../styles/theme";
 
 export default function Income() {
   const {
