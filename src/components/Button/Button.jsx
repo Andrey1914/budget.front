@@ -1,5 +1,6 @@
 import React from "react";
-import { ButtonStyled } from "./ButtonStyled";
+
+import { ButtonStyled } from "components/Button/ButtonStyled";
 
 export default function Button({ name, icon, onClick, bPad }) {
   return (

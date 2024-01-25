@@ -8,20 +8,29 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
 
+    body{
+        font-family: 'Nunito', sans-serif;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        /* overflow: hidden; */
+        color: rgba(34, 34, 96, 0.6);
+        background-color: rgb(233, 246, 255);
+    }
+
     :root{
-        --text: #222260;
-        --primary-color2: 'color: rgba(34, 34, 96, .6)';
-        --primary-color3: 'color: rgba(34, 34, 96, .4)';
+        --text: #280274;
+        /* --primary-color2: 'color: rgba(34, 34, 96, .6)'; */
+        /* --primary-color3: 'color: rgba(34, 34, 96, .4)'; */
         --green: #42AD00;
-        --color-grey: #aaa;
+        /* --color-grey: #aaa; */
         --red: #F56692;
-        --color-delete: #FF0000;
+        /* --color-delete: #FF0000; */
         --bg-header: #4fbaf4;
         --liniar-gradient-dark: #4fbaf4;
         --liniar-gradient-light: #4af2ec;
         --bg-box: #fcf6f9;
         --bg: #f3f9f9;
-        --shadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;'
+        --bg-orb: 'linear-gradient(90deg, rgb(254, 122, 54) 0%, rgb(54, 82, 173) 100%);';
+        --shadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;';
     }
 
     html[theme-type="light"] {
@@ -86,12 +95,7 @@ export const GlobalStyle = createGlobalStyle`
     /* #1976d2 */
   }
 
-    body{
-        font-family: 'Nunito', sans-serif;
-        font-size: clamp(1rem, 1.5vw, 1.2rem);
-        /* overflow: hidden; */
-        color: rgba(34, 34, 96, .6);
-    }
+   
 
     h1, h2, h3, h4, h5, h6{
         color: var(--text);

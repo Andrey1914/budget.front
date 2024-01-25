@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 
-import { useGlobalContext } from "../../context/globalContext";
+import { useGlobalContext } from "context/globalContext";
 
-import TransactionItem from "../TransactionItem/TransactionItem.jsx";
+import TransactionItem from "components/TransactionItem/TransactionItem.jsx";
 
-import { ContainerStyled } from "./AllTransactionsStyled.js";
+import { ContainerStyled } from "pages/AllTransactions/AllTransactionsStyled";
 
 import { Container, Typography } from "@mui/material";
-import { theme } from "../../styles/theme.js";
+
+import { theme } from "styles/theme.js";
 
 export default function AllTransactions() {
   const {

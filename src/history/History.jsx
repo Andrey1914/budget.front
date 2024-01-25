@@ -1,7 +1,8 @@
 import React from "react";
-import { useGlobalContext } from "../context/globalContext";
 
-import { HistoryStyled, HistoryItem } from "./HistoryStyled";
+import { useGlobalContext } from "context/globalContext";
+
+import { HistoryStyled, HistoryItem } from "history/HistoryStyled";
 
 import { Typography } from "@mui/material";
 

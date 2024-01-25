@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
-import { useGlobalContext } from "../../context/globalContext";
-import { InnerLayout } from "../../styles/layouts";
-import ExpenseForm from "./ExpenseForm";
+
+import { useGlobalContext } from "context/globalContext";
+
+import ExpenseForm from "components/Forms/ExpenseForm";
 
 import {
   TotalExpensesContainer,
   FormContainer,
   TotalSum,
-} from "./ExpensesStyled";
+} from "pages/Expenses/ExpensesStyled";
+
+import { InnerLayout } from "styles/layouts";
+
+import { theme } from "styles/theme";
 
 import { Container, Typography } from "@mui/material";
-import { theme } from "../../styles/theme";
 
 export default function Expenses() {
   const { getExpenses, totalExpenses } = useGlobalContext();

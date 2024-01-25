@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 
-import { useGlobalContext } from "../../context/globalContext";
-import History from "../../history/History";
-import { InnerLayout } from "../../styles/layouts";
-import { dollar } from "../../utils/icons";
-import Chart from "../Chart/Chart";
+import { useGlobalContext } from "context/globalContext";
+
+import History from "history/History";
+
+import { dollar } from "utils/icons";
+
+import Chart from "components/Chart/Chart";
 
 import {
   DashboardContainer,
@@ -12,7 +14,9 @@ import {
   SalaryTitle,
   SalaryItem,
   AmountItem,
-} from "./DashboardStyled";
+} from "pages/Dashboard/DashboardStyled";
+
+import { InnerLayout } from "styles/layouts";
 
 import { Grid, Typography } from "@mui/material";
 

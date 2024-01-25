@@ -12,10 +12,10 @@ import {
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
-import { useGlobalContext } from "../../context/globalContext";
-import { dateFormat } from "../../utils/dateFormat";
+import { useGlobalContext } from "context/globalContext";
+import { dateFormat } from "utils/dateFormat";
 
-import { ChartStyled } from "./ChartStyled";
+import { ChartStyled } from "components/Chart/ChartStyled";
 
 ChartJs.register(
   CategoryScale,
