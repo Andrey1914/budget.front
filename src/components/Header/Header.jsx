@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 // import PropTypes from "prop-types";
 
 // import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
@@ -11,16 +11,16 @@ import {
   Drawer,
   IconButton,
   Toolbar,
-} from "@mui/material";
+} from '@mui/material';
 
-import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from '@mui/icons-material/Menu';
 
 import {
   NavigationList,
   NavigationLink,
   DrowerItem,
   Title,
-} from "components/Header/HeaderStyled";
+} from 'components/Header/HeaderStyled';
 
 const drawerWidth = 240;
 
@@ -39,7 +39,7 @@ export default function Header(props) {
     <Box
       onClick={handleDrawerToggle}
       sx={{
-        textAlign: "center",
+        textAlign: 'center',
         // background: "linear-gradient(180deg, #4fbaf4 0%, #4af2ec 100%)",
       }}
     >
@@ -47,27 +47,27 @@ export default function Header(props) {
         variant="h6"
         sx={{
           py: 2,
-          color: "var(--text)",
-          background: "linear-gradient(180deg, #4fbaf4 0%, #4af2ec 100%)",
+          color: 'var(--text)',
+          background: 'linear-gradient(180deg, #4fbaf4 0%, #4af2ec 100%)',
         }}
       >
         Бюджет
       </Title>
-      <Divider sx={{ borderColor: "var(--border-color)" }} />
+      <Divider sx={{ borderColor: 'var(--border-color)' }} />
       <NavigationList>
-        <NavigationLink to="/income">
+        <NavigationLink to="income">
           <DrowerItem>Дохід</DrowerItem>
         </NavigationLink>
-        <NavigationLink to="/expenses">
+        <NavigationLink to="expenses">
           <DrowerItem>Видаток</DrowerItem>
         </NavigationLink>
         <NavigationLink to="/">
           <DrowerItem>Консоль</DrowerItem>
         </NavigationLink>
-        <NavigationLink to="/all-transactions">
+        <NavigationLink to="all-transactions">
           <DrowerItem>Історія</DrowerItem>
         </NavigationLink>
-        <NavigationLink to="/tasks">
+        <NavigationLink to="tasks">
           <DrowerItem>Потрібно купити</DrowerItem>
         </NavigationLink>
       </NavigationList>
@@ -80,23 +80,28 @@ export default function Header(props) {
 
   return (
     <Box component="header">
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
           component="nav"
           sx={{
-            padding: "0.7rem 0",
-            background: "linear-gradient(to left, #4fbaf4 0%, #4af2ec 100%)",
+            padding: '0.7rem 0',
+            // background: 'linear-gradient(to left, #4fbaf4 0%, #4af2ec 100%)',
+            background: '#4fbaf4',
           }}
         >
           {/* {!isLoggedIn ? ( */}
-          <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
             <IconButton
               color="black"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" }, color: "var(--text)" }}
+              sx={{
+                mr: 2,
+                display: { sm: 'none' },
+                color: 'var(--text)',
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -104,20 +109,20 @@ export default function Header(props) {
 
             <Box
               sx={{
-                display: { xs: "none", sm: "flex" },
-                gap: "1rem",
-                alignItems: "center",
+                display: { xs: 'none', sm: 'flex' },
+                gap: '1rem',
+                alignItems: 'center',
               }}
             >
               {/* <ThemeSwitch /> */}
               <NavigationList>
                 <li>
-                  <NavigationLink to="/income" exact="true">
+                  <NavigationLink to="income" exact="true">
                     Дохід
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink to="/expenses" exact="true">
+                  <NavigationLink to="expenses" exact="true">
                     Видаток
                   </NavigationLink>
                 </li>
@@ -127,12 +132,12 @@ export default function Header(props) {
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink to="/all-transactions" exact="true">
+                  <NavigationLink to="all-transactions" exact="true">
                     Історія
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink to="/tasks" exact="true">
+                  <NavigationLink to="tasks" exact="true">
                     Потрібно купити
                   </NavigationLink>
                 </li>
@@ -153,12 +158,12 @@ export default function Header(props) {
               keepMounted: true, // Better open performance on mobile.
             }}
             sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': {
+                boxSizing: 'border-box',
                 width: drawerWidth,
-                justifyContent: "space-between",
-                backgroundColor: "var(--bg)",
+                justifyContent: 'space-between',
+                backgroundColor: 'var(--bg)',
               },
             }}
           >

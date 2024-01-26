@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom';
-
 import { Typography } from '@mui/material';
 
-export default function Tasks() {
+export default function TaskForm() {
   return (
     <>
       <Typography component="h1" variant="h1" style={{ padding: '100px' }}>
-        Tasks page
+        Task Form Page
       </Typography>
-      <Link to="task-form">Додай покупку</Link>
     </>
   );
 }
