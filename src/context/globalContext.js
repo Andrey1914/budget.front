@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from 'react';
 
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = "http://localhost:10000/api/v1/";
-
-// const BASE_URL = "https://budget-server-owpc.onrender.com/api/v1";
+const BASE_URL = process.env.REACT_APP_LOCALHOST;
+// const BASE_URL = REACT_APP_HOST;
 
 const GlobalContext = React.createContext();
 
@@ -15,13 +14,13 @@ export const GlobalProvider = ({ children }) => {
 
   const options = {
     headers: {
-      "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Origin": "http://localhost:10000/api/v1/",
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Origin': 'http://localhost:10000/api/v1/',
       // "https://budget-server-owpc.onrender.com/api/v1",
-      "Content-Type": "application/json",
-      " Access-Control-Allow-Methods": "POST, GET, OPTIONS, HEAD",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
+      'Content-Type': 'application/json',
+      ' Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
     },
   };
 
@@ -33,7 +32,7 @@ export const GlobalProvider = ({ children }) => {
         options
       );
 
-      console.log("Дохід успішно додано:", response.data);
+      console.log('Дохід успішно додано:', response.data);
 
       await getIncomes();
     } catch (err) {
@@ -53,7 +52,7 @@ export const GlobalProvider = ({ children }) => {
         setIncomes(response.data);
       }
     } catch (error) {
-      console.log("Помилка отримання списку доходів:", error);
+      console.log('Помилка отримання списку доходів:', error);
     }
   };
 
@@ -61,21 +60,21 @@ export const GlobalProvider = ({ children }) => {
     try {
       await axios.delete(`${BASE_URL}/delete-income/${id}`, options);
       await getIncomes();
-      console.log("Запис про дохід успішно видалено!");
+      console.log('Запис про дохід успішно видалено!');
     } catch (err) {
-      console.log("Помилка видалення надходження:", err);
+      console.log('Помилка видалення надходження:', err);
     }
   };
 
   const totalIncomes = () => {
     if (!Array.isArray(incomes)) {
-      console.log("Помилка: `incomes` має бути масивом");
+      console.log('Помилка: `incomes` має бути масивом');
       return;
     }
 
     return incomes.reduce((total, income) => {
       if (!income.amount) {
-        console.log("Помилка: надходження повинні мати властивість `amount`");
+        console.log('Помилка: надходження повинні мати властивість `amount`');
         return total;
       }
 
@@ -91,7 +90,7 @@ export const GlobalProvider = ({ children }) => {
         options
       );
 
-      console.log("Видаток успішно додано:", response.data);
+      console.log('Видаток успішно додано:', response.data);
 
       await getExpenses();
     } catch (err) {
@@ -111,7 +110,7 @@ export const GlobalProvider = ({ children }) => {
         setExpenses(response.data);
       }
     } catch (err) {
-      console.log("Помилка отримання списку видатків:", err);
+      console.log('Помилка отримання списку видатків:', err);
     }
   };
 
@@ -119,21 +118,21 @@ export const GlobalProvider = ({ children }) => {
     try {
       await axios.delete(`${BASE_URL}/delete-expense/${id}`, options);
       await getExpenses();
-      console.log("Запис про росхід успішно видалено!");
+      console.log('Запис про росхід успішно видалено!');
     } catch (err) {
-      console.log("Помилка видалення видатку:", err);
+      console.log('Помилка видалення видатку:', err);
     }
   };
 
   const totalExpenses = () => {
     if (!Array.isArray(expenses)) {
-      console.log("Помилка: `expenses` має бути масивом");
+      console.log('Помилка: `expenses` має бути масивом');
       return;
     }
 
     return expenses.reduce((total, expense) => {
       if (!expense.amount) {
-        console.log("Помилка: видатки повинні мати властивість `amount`");
+        console.log('Помилка: видатки повинні мати властивість `amount`');
         return total;
       }
 
