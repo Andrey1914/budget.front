@@ -2,14 +2,10 @@ import React, { useContext, useState } from 'react';
 
 import axios from 'axios';
 
-// const {
-//   REACT_APP_LOCALHOST,
-//   REACT_APP_HOST,
-// } = process.env;
+// const { REACT_APP_LOCALHOST, REACT_APP_HOST } = process.env;
 
 const BASE_URL = 'https://budget-server-owpc.onrender.com/api/v1/';
-// REACT_APP_LOCALHOST ||
-// REACT_APP_HOST;
+// REACT_APP_LOCALHOST || REACT_APP_HOST;
 
 const GlobalContext = React.createContext();
 
@@ -26,8 +22,7 @@ export const GlobalProvider = ({ children }) => {
       'Access-Control-Allow-Credentials': 'true',
       'Access-Control-Allow-Origin':
         'https://budget-server-owpc.onrender.com/api/v1/',
-      // REACT_APP_LOCALHOST ||
-      // REACT_APP_HOST,
+      // REACT_APP_LOCALHOST || REACT_APP_HOST,
       'Content-Type': 'application/json',
       ' Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD',
       'Access-Control-Allow-Headers':
