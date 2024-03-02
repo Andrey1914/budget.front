@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_LOCALHOST;
-// const BASE_URL = REACT_APP_HOST;
+const { REACT_APP_LOCALHOST, REACT_APP_HOST } = process.env;
+
+const BASE_URL = REACT_APP_LOCALHOST || REACT_APP_HOST;
 
 const GlobalContext = React.createContext();
 
@@ -12,11 +13,13 @@ export const GlobalProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState(null);
 
+  const [tasks, setTasks] = useState([]);
+  // const [currentTask, setCurrentTask] = useState('');
+
   const options = {
     headers: {
       'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Origin': 'http://localhost:10000/api/v1/',
-      // "https://budget-server-owpc.onrender.com/api/v1",
+      'Access-Control-Allow-Origin': REACT_APP_LOCALHOST || REACT_APP_HOST,
       'Content-Type': 'application/json',
       ' Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD',
       'Access-Control-Allow-Headers':
@@ -24,6 +27,49 @@ export const GlobalProvider = ({ children }) => {
     },
   };
 
+  //Tasks
+  const getTasks = async () => {
+    if (tasks && tasks.length > 0) {
+      return;
+    }
+    try {
+      const response = await axios.get(`${BASE_URL}/get-tasks`, options);
+
+      if (response && response.data && Array.isArray(response.data.tasks)) {
+        setTasks(response.data.tasks);
+      } else {
+        console.error('Ответ сервера не содержит массив задач:', response.data);
+      }
+    } catch (error) {
+      console.error('Помилка отримання списку задач:', error);
+    }
+  };
+
+  const addTask = async (task) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/add-task`, task, options);
+
+      console.log('Задачу успішно додано:', response.data);
+
+      getTasks();
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data.message);
+    }
+  };
+
+  const deleteTask = async (id) => {
+    try {
+      await axios.delete(`${BASE_URL}/delete-task/${id}`, options);
+
+      await getTasks();
+
+      console.log('Запис успішно видалено!');
+    } catch (err) {
+      console.log('Помилка видалення запису:', err);
+    }
+  };
+  //Incomes
   const addIncome = async (income) => {
     try {
       const response = await axios.post(
@@ -35,8 +81,8 @@ export const GlobalProvider = ({ children }) => {
       console.log('Дохід успішно додано:', response.data);
 
       await getIncomes();
-    } catch (err) {
-      setError(err.response.data.message);
+    } catch (error) {
+      setError(error.response.data.message);
     }
   };
 
@@ -170,6 +216,10 @@ export const GlobalProvider = ({ children }) => {
         transactionHistory,
         error,
         setError,
+        getTasks,
+        tasks,
+        addTask,
+        deleteTask,
       }}
     >
       {children}

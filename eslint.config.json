@@ -5,8 +5,10 @@
       "airbnb",
       "plugin:import/recommended",
       "plugin:react/jsx-runtime",
-      "prettier"
+      "prettier",
+      "plugin:react-hooks/recommended"
     ],
+
     "settings": {
       "import/resolver": {
         "node": {

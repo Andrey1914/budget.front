@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import { useGlobalContext } from "context/globalContext";
+import { useGlobalContext } from 'context/globalContext';
 
-import History from "history/History";
+import History from 'history/History';
 
-import { dollar } from "utils/icons";
+import { dollar } from 'utils/icons';
 
-import Chart from "components/Chart/Chart";
+import Chart from 'components/Chart/Chart';
 
 import {
   DashboardContainer,
@@ -14,11 +14,11 @@ import {
   SalaryTitle,
   SalaryItem,
   AmountItem,
-} from "pages/Dashboard/DashboardStyled";
+} from 'pages/Dashboard/DashboardStyled';
 
-import { InnerLayout } from "styles/layouts";
+import { InnerLayout } from 'styles/layouts';
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography } from '@mui/material';
 
 export default function Dashboard() {
   const {
@@ -34,7 +34,7 @@ export default function Dashboard() {
   useEffect(() => {
     getIncomes();
     getExpenses();
-  });
+  }, [getIncomes, getExpenses]);
 
   return (
     <InnerLayout>
@@ -46,7 +46,7 @@ export default function Dashboard() {
           <Chart />
           <Grid container spacing={1} my={1}>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "var(--bg-box)" }}>
+              <AmountItem style={{ background: 'var(--bg-box)' }}>
                 <SalaryTitle component="h2">Весь прибуток.</SalaryTitle>
                 <Typography component="p" color="var(--green)">
                   {dollar} {totalIncomes()}
@@ -54,7 +54,7 @@ export default function Dashboard() {
               </AmountItem>
             </Grid>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "var(--bg-box)" }}>
+              <AmountItem style={{ background: 'var(--bg-box)' }}>
                 <SalaryTitle component="h2">Всі витрати.</SalaryTitle>
                 <Typography component="p" color="var(--red)">
                   {dollar} {totalExpenses()}
@@ -62,7 +62,7 @@ export default function Dashboard() {
               </AmountItem>
             </Grid>
             <Grid item xs={6} md={4}>
-              <AmountItem style={{ background: "var(--bg-box)" }}>
+              <AmountItem style={{ background: 'var(--bg-box)' }}>
                 <SalaryTitle component="h2">Залишок коштів.</SalaryTitle>
                 <Typography component="p" color="var(--green)">
                   {dollar} {totalBalance()}
@@ -75,7 +75,7 @@ export default function Dashboard() {
           <SalaryTitle component="h2">
             Мін <span>Прибуток</span> Макс
           </SalaryTitle>
-          <SalaryItem style={{ background: "var(--bg-box)" }}>
+          <SalaryItem style={{ background: 'var(--bg-box)' }}>
             <Typography component="p" color="var(--green)">
               PLN {Math.min(...incomes.map((item) => item.amount))}
             </Typography>
@@ -87,7 +87,7 @@ export default function Dashboard() {
           <SalaryTitle component="h2">
             Мін <span>Видаток</span> Макс
           </SalaryTitle>
-          <SalaryItem style={{ background: "var(--bg-box)" }}>
+          <SalaryItem style={{ background: 'var(--bg-box)' }}>
             <Typography component="p" color="var(--red)">
               PLN {Math.min(...expenses.map((item) => item.amount))}
             </Typography>
