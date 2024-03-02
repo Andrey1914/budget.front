@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         /* overflow: hidden; */
         color: rgba(34, 34, 96, 0.6);
         background-color: rgb(233, 246, 255);
+        padding-top: 100px;
     }
 
     :root{

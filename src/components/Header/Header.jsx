@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+// import { useAuth } from '../../hooks/useAuth';
 // import PropTypes from "prop-types";
 
 // import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
@@ -15,6 +17,10 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 
+// import AuthNav from 'components/AuthNav/AuthNav';
+
+// import UserMenu from 'components/UserMenu/UserMenu';
+
 import {
   NavigationList,
   NavigationLink,
@@ -22,12 +28,16 @@ import {
   Title,
 } from 'components/Header/HeaderStyled';
 
+// import { refreshUser } from '../../redux/auth/operations';
+
 const drawerWidth = 240;
 
 export default function Header(props) {
-  //   const isLoggedIn = useSelector(getIsLoggedIn);
+  // const { isLoggedIn } = useAuth();
+  // console.log(isLoggedIn);
 
-  //   const { data } = refreshCurrentUser();
+  // const { data } = refreshUser();
+  // console.log(data);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -54,23 +64,37 @@ export default function Header(props) {
         Бюджет
       </Title>
       <Divider sx={{ borderColor: 'var(--border-color)' }} />
-      <NavigationList>
-        <NavigationLink to="income">
-          <DrowerItem>Дохід</DrowerItem>
-        </NavigationLink>
-        <NavigationLink to="expenses">
-          <DrowerItem>Видаток</DrowerItem>
-        </NavigationLink>
-        <NavigationLink to="/">
-          <DrowerItem>Консоль</DrowerItem>
-        </NavigationLink>
-        <NavigationLink to="all-transactions">
-          <DrowerItem>Історія</DrowerItem>
-        </NavigationLink>
-        <NavigationLink to="tasks">
-          <DrowerItem>Потрібно купити</DrowerItem>
-        </NavigationLink>
-      </NavigationList>
+      {/* <UserMenu data={data} /> */}
+      {/* {isLoggedIn ? ( */}
+
+      <>
+        {/* <UserMenu data={data} /> */}
+        <NavigationList>
+          <NavigationLink to="/">
+            <DrowerItem>Консоль</DrowerItem>
+          </NavigationLink>
+
+          <NavigationLink to="income">
+            <DrowerItem>Дохід</DrowerItem>
+          </NavigationLink>
+
+          <NavigationLink to="expenses">
+            <DrowerItem>Видаток</DrowerItem>
+          </NavigationLink>
+
+          <NavigationLink to="tasks">
+            <DrowerItem>Потрібно купити</DrowerItem>
+          </NavigationLink>
+
+          <NavigationLink to="all-transactions">
+            <DrowerItem>Історія</DrowerItem>
+          </NavigationLink>
+        </NavigationList>
+      </>
+      {/* ) : ( */}
+      {/* <AuthNav /> */}
+      {/* )} */}
+
       {/* <ThemeSwitch /> */}
     </Box>
   );
@@ -90,7 +114,6 @@ export default function Header(props) {
             background: '#4fbaf4',
           }}
         >
-          {/* {!isLoggedIn ? ( */}
           <Toolbar sx={{ justifyContent: 'space-between' }}>
             <IconButton
               color="black"
@@ -115,38 +138,43 @@ export default function Header(props) {
               }}
             >
               {/* <ThemeSwitch /> */}
-              <NavigationList>
-                <li>
-                  <NavigationLink to="income" exact="true">
-                    Дохід
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink to="expenses" exact="true">
-                    Видаток
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink to="/" exact="true">
-                    Консоль
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink to="all-transactions" exact="true">
-                    Історія
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink to="tasks" exact="true">
-                    Потрібно купити
-                  </NavigationLink>
-                </li>
-              </NavigationList>
+
+              {/* {isLoggedIn ? ( */}
+              <>
+                {/* <UserMenu data={data} /> */}
+                <NavigationList>
+                  <li>
+                    <NavigationLink to="/" exact="true">
+                      Консоль
+                    </NavigationLink>
+                  </li>
+                  <li>
+                    <NavigationLink to="income" exact="true">
+                      Дохід
+                    </NavigationLink>
+                  </li>
+                  <li>
+                    <NavigationLink to="expenses" exact="true">
+                      Видаток
+                    </NavigationLink>
+                  </li>
+                  <li>
+                    <NavigationLink to="tasks" exact="true">
+                      Потрібно купити
+                    </NavigationLink>
+                  </li>
+                  <li>
+                    <NavigationLink to="all-transactions" exact="true">
+                      Історія
+                    </NavigationLink>
+                  </li>
+                </NavigationList>
+              </>
+              {/* ) : ( */}
+              {/* <AuthNav /> */}
+              {/* )} */}
             </Box>
           </Toolbar>
-          {/* ) : ( */}
-          {/* <UserMenu data={data} /> */}
-          {/* )} */}
         </AppBar>
         <Box component="nav">
           <Drawer
